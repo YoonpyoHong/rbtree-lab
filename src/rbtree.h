@@ -19,7 +19,15 @@ typedef struct {
 } rbtree;
 
 rbtree *new_rbtree(void);
-void delete_rbtree(rbtree *);
+void print_rbtree(const rbtree *t, const node_t *x);
+void delete_rbtree(rbtree *t);
+void delete_node(rbtree *t, node_t *x);
+void rbtree_transplant(rbtree *t, node_t *x, node_t *y);
+void rbtree_insert_fixup(rbtree *t , node_t *z);
+void rbtree_erase_fixup(rbtree *t, node_t *z);
+int rbtree_recursive_search(const rbtree *t, key_t *arr, const size_t n, const node_t *now, int idx);
+node_t *right_rotate(rbtree *t, node_t *x);
+node_t *left_rotate(rbtree *t, node_t *x);
 
 node_t *rbtree_insert(rbtree *, const key_t);
 node_t *rbtree_find(const rbtree *, const key_t);
